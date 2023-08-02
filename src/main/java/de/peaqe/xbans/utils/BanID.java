@@ -17,8 +17,8 @@ import java.time.temporal.ChronoUnit;
 @SuppressWarnings(value = "unused")
 public enum BanID {
 
-    zero(0, "0", "Entwickler Ban", "10 Sekunden", BanLevel.ADMIN, BanType.BAN_TEMPORARILY),
-    one(1, "1", "Supporter Ban", "12 Stunden", BanLevel.SUP, BanType.BAN_TEMPORARILY),
+    zero(0, "0", "Entwickler-Ban", "10 Sekunden", BanLevel.ADMIN, BanType.BAN_TEMPORARILY),
+    one(1, "1", "Supporter-Ban", "12 Stunden", BanLevel.SUP, BanType.BAN_TEMPORARILY),
     two(2, "2", "Unerlaubte-Clientmodifikation", "30 Tage", BanLevel.SUP_PLUS, BanType.BAN_TEMPORARILY),
     three(3, "3", "Bugusing", "30 Tage", BanLevel.SUP_PLUS, BanType.BAN_TEMPORARILY),
     four(4, "4", "Beleidigung", "12 Stunden", BanLevel.SUP_PLUS, BanType.BAN_TEMPORARILY),
@@ -26,7 +26,7 @@ public enum BanID {
     six(6, "6", "Diskriminierung", "-1", BanLevel.MOD, BanType.BAN_PERMANENTLY),
     seven(7, "7", "Rechtsextrem", "-1", BanLevel.MOD, BanType.BAN_PERMANENTLY),
     eight(8, "8", "Sicherheit", "-1", BanLevel.MOD_PLUS, BanType.BAN_PERMANENTLY),
-    nine(9, "9", "Politische äußerungen", "-1", BanLevel.MOD_PLUS, BanType.BAN_PERMANENTLY),
+    nine(9, "9", "Politische-Äußerungen", "-1", BanLevel.MOD_PLUS, BanType.BAN_PERMANENTLY),
     ten(10, "10", "Unerwünscht", "-1", BanLevel.ADMIN, BanType.BAN_PERMANENTLY),
     eleven(11, "11", "Hausverbot", "-1", BanLevel.ADMIN, BanType.BAN_PERMANENTLY);
 
