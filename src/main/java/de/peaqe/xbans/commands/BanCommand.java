@@ -90,6 +90,7 @@ public class BanCommand extends Command implements TabExecutor {
 
 		// Ban the target
 		main.getBanDatabase().banPlayer(sender.getName(), args[0], banid);
+		main.getBanHistoryDatabase().banPlayer(sender.getName(), args[0], banid);
 
 		// Kick the target if he is on the network
 		if (ProxyServer.getInstance().getPlayer(args[0]) != null) {

@@ -13,7 +13,6 @@ import de.peaqe.xbans.utils.IDManager;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.plugin.Plugin;
-import net.md_5.bungee.protocol.packet.Kick;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

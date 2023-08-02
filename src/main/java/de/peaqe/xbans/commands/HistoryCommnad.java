@@ -45,14 +45,19 @@ public class HistoryCommnad extends Command implements TabExecutor {
 			return;
 		}
 
-		if (main.getPlayerDatabase().isRegistered(args[0])) {
+		if (!main.getPlayerDatabase().isRegistered(args[0])) {
 			sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Der Spieler " + main.getColor() + "§7 konnte nicht gefunden werden!"));
+			return;
+		}
+
+		if (historyDatabase.getPlayerBanSize(args[0]) <= 0) {
+			sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Der Spieler " + main.getColor() + args[0] + "§7 wurde in der Vergangenheit nicht bestraft!"));
 			return;
 		}
 
 		var list = historyDatabase.getPlayerBans(args[0]);
 
-		sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Die Vergangenheit, von " + main.getColor() + args[0] + "§7:"));
+		sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Die Vergangenheit von " + main.getColor() + args[0] + "§7:"));
 		sender.sendMessage(TextComponent.fromLegacyText(""));
 
 		sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Gebannt: " + (main.getBanDatabase().isBanned(args[0]) ? "§aJa" : "§cNein")));
@@ -60,8 +65,17 @@ public class HistoryCommnad extends Command implements TabExecutor {
 
 		sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Bans: "));
 		list.forEach(document -> {
-			sender.sendMessage(TextComponent.fromLegacyText("§8» Grund: " + main.getColor() + document.getString("ban_reason") + "§7 Laufzeit: " + main.getColor() + main.idManager.getExpiry(main.idManager.getBanID(document.getInteger("ban_id"))) +
-					" §7(" + main.getColor() + new IDUtils(main.idManager.getBanID(document.getInteger("ban_id"))).getBanExpiryDate() + "§7)"));
+			sender.sendMessage(TextComponent.fromLegacyText(
+					"§8» §c§lBAN " +
+							main.getColor() +
+							document.getString("ban_reason") +
+							"§7 von " +
+							main.getColor() +
+							document.getString("ban_autor") +
+							"§7 Laufzeit " +
+							main.getColor() +
+							main.idManager.getExpiry(main.idManager.getBanID(document.getInteger("ban_id")))
+			));
 		});
 
 
