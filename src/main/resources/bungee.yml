@@ -6,3 +6,4 @@ author: peaqe
 commands:
   ban:
   unban:
+  kick:

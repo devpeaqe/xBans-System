@@ -1,6 +1,7 @@
 package de.peaqe.xbans;
 
 import de.peaqe.xbans.commands.BanCommand;
+import de.peaqe.xbans.commands.KickCommand;
 import de.peaqe.xbans.commands.UnbanCommand;
 import de.peaqe.xbans.config.DatabaseConfig;
 import de.peaqe.xbans.listener.ProxyJoinListener;
@@ -10,6 +11,7 @@ import de.peaqe.xbans.utils.IDManager;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.plugin.Plugin;
+import net.md_5.bungee.protocol.packet.Kick;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,6 +68,7 @@ public final class XBans extends Plugin {
     private void registerCommand() {
         getProxy().getPluginManager().registerCommand(this, new BanCommand("ban"));
         getProxy().getPluginManager().registerCommand(this, new UnbanCommand("unban"));
+        getProxy().getPluginManager().registerCommand(this, new KickCommand("kick"));
     }
 
 }
