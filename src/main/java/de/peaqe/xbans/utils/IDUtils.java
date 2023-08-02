@@ -10,6 +10,11 @@ package de.peaqe.xbans.utils;
  *
  */
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
 @SuppressWarnings(value = "unused")
 public class IDUtils {
 
@@ -41,6 +46,13 @@ public class IDUtils {
 
     public long getBanExpiry() {
         return banID.getTimeStamp();
+    }
+
+    public String getBanExpiryDate() {
+        LocalDateTime dateTime = Instant.ofEpochMilli(this.getBanExpiry()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy ':' HH.mm 'Uhr'");
+
+        return dateTime.format(formatter);
     }
 
 }

@@ -1,11 +1,13 @@
 package de.peaqe.xbans;
 
 import de.peaqe.xbans.commands.BanCommand;
+import de.peaqe.xbans.commands.HistoryCommnad;
 import de.peaqe.xbans.commands.KickCommand;
 import de.peaqe.xbans.commands.UnbanCommand;
 import de.peaqe.xbans.config.DatabaseConfig;
 import de.peaqe.xbans.listener.ProxyJoinListener;
 import de.peaqe.xbans.provider.BanDatabase;
+import de.peaqe.xbans.provider.BanHistoryDatabase;
 import de.peaqe.xbans.provider.PlayerDatabase;
 import de.peaqe.xbans.utils.IDManager;
 import lombok.Getter;
@@ -23,6 +25,7 @@ public final class XBans extends Plugin {
     public DatabaseConfig databaseConfig;
     public PlayerDatabase playerDatabase;
     public BanDatabase banDatabase;
+    public BanHistoryDatabase banHistoryDatabase;
     public IDManager idManager;
     public String prefix;
     public ChatColor color;
@@ -53,6 +56,7 @@ public final class XBans extends Plugin {
         databaseConfig.create();
 
         banDatabase = new BanDatabase();
+        banHistoryDatabase = new BanHistoryDatabase();
         playerDatabase = new PlayerDatabase();
 
         idManager = new IDManager();
@@ -69,6 +73,7 @@ public final class XBans extends Plugin {
         getProxy().getPluginManager().registerCommand(this, new BanCommand("ban"));
         getProxy().getPluginManager().registerCommand(this, new UnbanCommand("unban"));
         getProxy().getPluginManager().registerCommand(this, new KickCommand("kick"));
+        getProxy().getPluginManager().registerCommand(this, new HistoryCommnad("history"));
     }
 
 }
