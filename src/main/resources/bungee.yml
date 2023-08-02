@@ -1,0 +1,8 @@
+name: xBans
+version: '${project.version}'
+main: de.peaqe.xbans.XBans
+author: peaqe
+
+commands:
+  ban:
+  unban:
