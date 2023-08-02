@@ -102,7 +102,7 @@ public class BanCommand extends Command implements TabExecutor {
 		// Send feedback to the team
 		ProxyServer.getInstance().getPlayers().forEach(player -> {
 			if (!player.hasPermission("system.ban.notify")) return;
-			player.sendMessage(TextComponent.fromLegacyText(main.getColor() + "§lBAN §8» " + main.getColor() + args[0] + "§7 von " + main.getColor() + sender.getName() + "§7für " + main.getColor() + banid.getReason() + "§7 (" + main.getIdManager().getExpiry(banid) + "§7)"));
+			player.sendMessage(TextComponent.fromLegacyText(main.getColor() + "§lBAN §8» " + main.getColor() + args[0] + "§7 von " + main.getColor() + sender.getName() + "§7für " + main.getColor() + banid.getReason() + "§7 (" + main.getColor() + main.getIdManager().getExpiry(banid) + "§7)"));
 		});
 
     }
@@ -134,6 +134,6 @@ public class BanCommand extends Command implements TabExecutor {
 
 		}
 
-        return new ArrayList<>();
+        return matches;
     }
 }
