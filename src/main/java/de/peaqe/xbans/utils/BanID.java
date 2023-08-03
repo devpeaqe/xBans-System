@@ -17,7 +17,6 @@ import java.time.temporal.ChronoUnit;
 @SuppressWarnings(value = "unused")
 public enum BanID {
 
-    zero(0, "0", "Entwickler-Ban", "10 Sekunden", BanLevel.ADMIN, BanType.BAN_TEMPORARILY),
     one(1, "1", "Supporter-Ban", "12 Stunden", BanLevel.SUP, BanType.BAN_TEMPORARILY),
     two(2, "2", "Unerlaubte-Clientmodifikation", "30 Tage", BanLevel.SUP_PLUS, BanType.BAN_TEMPORARILY),
     three(3, "3", "Bugusing", "30 Tage", BanLevel.SUP_PLUS, BanType.BAN_TEMPORARILY),
