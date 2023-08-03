@@ -50,6 +50,8 @@ public class IDUtils {
 
     public String getBanExpiryDate() {
         LocalDateTime dateTime = Instant.ofEpochMilli(this.getBanExpiry()).atZone(ZoneId.systemDefault()).toLocalDateTime();
+        if (dateTime.getYear() <= 2000) return "PERMANENT";
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy ':' HH.mm 'Uhr'");
 
         return dateTime.format(formatter);

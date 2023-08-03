@@ -61,7 +61,7 @@ public class HistoryCommand extends Command implements TabExecutor {
 
 		var list = historyDatabase.getPlayerBans(args[0]);
 
-		sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Der " + main.getColor() + "Ban-Verlauf §7von " + main.getColor() + args[0] + "§7:"));
+		sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Der " + main.getColor() + "Ban-Historie §7von " + main.getColor() + args[0] + "§7:"));
 		sender.sendMessage(TextComponent.fromLegacyText(""));
 
 		sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Gebannt: " + (main.getBanDatabase().isBanned(args[0]) ? "§aJa" : "§cNein")));
@@ -82,10 +82,10 @@ public class HistoryCommand extends Command implements TabExecutor {
 					document.getString("ban_autor") +
 					"§7 Zeit (" +
 					main.getColor() +
-					((document.getLong("ban_date") != null) ? "Unbekannt" : new DateUtils(document.getLong("ban_date")).getDate()) +
+					((document.getLong("ban_date") == null) ? "Unbekannt" : new DateUtils(document.getLong("ban_date")).getDate()) +
 					" §8» " +
 					main.getColor() +
-					((document.getLong("ban_date") != null) ? "Unbekannt" : new DateUtils(document.getLong("ban_expiry")).getDate()) );
+					((document.getLong("ban_expiry") == null) ? "Unbekannt" : new DateUtils(document.getLong("ban_expiry")).getDate()) );
 
 
 			TextComponent component = new TextComponent(TextComponent.fromLegacyText(text_normal));
