@@ -66,6 +66,7 @@ public class BanDatabase {
                 .append("ban_reason", idUtils.getReason())
                 .append("ban_duration", idUtils.getBanDuration())
                 .append("ban_expiry", idUtils.getBanExpiry())
+                .append("ban_date", System.currentTimeMillis())
                 .append("ban_level", idUtils.getBanLevel())
                 .append("ban_type", idUtils.getBanType());
 
@@ -122,6 +123,24 @@ public class BanDatabase {
         }
 
         return document.getString("ban_autor");
+    }
+
+    public Long getBanDate(String name) {
+
+        if (!isBanned(name)) {
+            return null;
+        }
+
+        UUID uuid = XBans.instance.getPlayerDatabase().getPlayerUUID(name);
+        Bson filter = Filters.eq("player_uuid", uuid.toString());
+        Document document = collection.find(filter).first();
+
+        if (document == null) {
+            return null;
+        }
+
+        return document.getLong("ban_date");
+
     }
 
     private void checkExpiredBans() {

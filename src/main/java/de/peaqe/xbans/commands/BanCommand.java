@@ -46,7 +46,7 @@ public class BanCommand extends Command implements TabExecutor {
 		if (!(args.length == 2)) {
 
 			// Check if it is a help command
-			if (args[0].equalsIgnoreCase("help")) {
+			if (args.length == 1 && args[0].equalsIgnoreCase("help")) {
 				sender.sendMessage(TextComponent.fromLegacyText(main.prefix + "Hier bekommst du eine übersicht über unsere " + main.getColor() + "Banngründe§7:"));
 				for (var id : BanID.values()) {
 					sender.sendMessage(TextComponent.fromLegacyText(main.prefix + main.getColor() + id.getIdentity() + "§8: " + main.getColor() + id.getReason() + "§7 » " + main.getColor() + main.getIdManager().getExpiry(id)));
@@ -98,7 +98,7 @@ public class BanCommand extends Command implements TabExecutor {
 		}
 
 		// Send feedback to the sender
-		sender.sendMessage(TextComponent.fromLegacyText(main.getColor() + "§lBAN §8» §7" + "Du hast den Spieler " + main.getColor() + args[0] + "§7 für die ID " + main.getColor() + banid.getIdentifier() + " §7gebannt."));
+		sender.sendMessage(TextComponent.fromLegacyText(main.getColor() + "§lBAN §8» §7" + "Du hast den Spieler " + main.getColor() + args[0] + "§7 für die Ban-ID " + main.getColor() + banid.getIdentifier() + " §7gebannt."));
 
 		// Send feedback to the team
 		ProxyServer.getInstance().getPlayers().forEach(player -> {

@@ -68,6 +68,7 @@ public class BanHistoryDatabase {
                 .append("ban_reason", idUtils.getReason())
                 .append("ban_duration", idUtils.getBanDuration())
                 .append("ban_expiry", idUtils.getBanExpiry())
+                .append("ban_date", System.currentTimeMillis())
                 .append("ban_level", idUtils.getBanLevel())
                 .append("ban_type", idUtils.getBanType());
 

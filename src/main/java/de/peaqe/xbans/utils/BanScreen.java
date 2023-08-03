@@ -34,7 +34,8 @@ public class BanScreen {
 
         var screen_component_1 = main.getColor() + "Du wurdest gebannt!";
         var screen_component_2 = "§7Grund: " + main.getColor() + this.banID.getReason();
-        var screen_component_3 = "§7Laufzeit: " + main.getColor() + new IDUtils(banID).getBanExpiryDate() + " §7(" + main.getColor() + main.idManager.getExpiry(banID) + "§7)";
+        var screen_component_3 = "§7Laufzeit: " + main.getColor() + main.idManager.getExpiry(banID);
+        var screen_component_6 = "§7Läuft bis: " + main.getColor() + (banID.getBanType().getIdentifier().equalsIgnoreCase("ban_permanently") ? "PERMANENT" : new IDUtils(banID).getBanExpiryDate());
         var screen_component_4 = "§e§oDu wurdest zu unrecht bestraft?";
         var screen_component_5 = main.getColor() + "§ohttps://serversystem.de/go/ea";
 
@@ -44,7 +45,10 @@ public class BanScreen {
                 empty + empty +
                 screen_component_2 +
                 empty +
-                screen_component_3 +
+                //empty +
+                //screen_component_3 +
+                //empty +
+                screen_component_6 +
                 empty +
                 empty +
                 screen_component_4 +
