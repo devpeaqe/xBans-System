@@ -1,9 +1,6 @@
 package de.peaqe.xbans;
 
-import de.peaqe.xbans.commands.BanCommand;
-import de.peaqe.xbans.commands.HistoryCommnad;
-import de.peaqe.xbans.commands.KickCommand;
-import de.peaqe.xbans.commands.UnbanCommand;
+import de.peaqe.xbans.commands.*;
 import de.peaqe.xbans.config.DatabaseConfig;
 import de.peaqe.xbans.listener.ProxyJoinListener;
 import de.peaqe.xbans.provider.BanDatabase;
@@ -72,7 +69,8 @@ public final class XBans extends Plugin {
         getProxy().getPluginManager().registerCommand(this, new BanCommand("ban"));
         getProxy().getPluginManager().registerCommand(this, new UnbanCommand("unban"));
         getProxy().getPluginManager().registerCommand(this, new KickCommand("kick"));
-        getProxy().getPluginManager().registerCommand(this, new HistoryCommnad("history"));
+        getProxy().getPluginManager().registerCommand(this, new HistoryCommand("history"));
+        getProxy().getPluginManager().registerCommand(this, new CheckCommnad("check"));
     }
 
 }
